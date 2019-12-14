@@ -16,7 +16,6 @@ const LoginForm = () => {
       .then(function(val) {
         console.log('logged succesful');
         console.log(val);
-        dispatch(toggleIsLogged(true))
       })
       .catch(function(error) {
         console.log(error.code);

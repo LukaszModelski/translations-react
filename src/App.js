@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import './App.css';
-import Table from './components/Table';
-import LoginForm from './components/LoginForm';
-import firebase from './firebase.js';
+import { useDispatch } from 'react-redux'
+import { toggleIsLogged } from './store/actions'
+import './App.css'
+import Table from './components/Table'
+import LoginForm from './components/LoginForm'
+import firebase from './firebase.js'
 
 const loadFirebaseData = () => {
 	const databeseRef = firebase.database().ref();
@@ -13,11 +15,18 @@ const loadFirebaseData = () => {
 	});
 }
 
+const isUserSignedIn = (dispatch) => {
+	firebase.auth().onAuthStateChanged(user => {
+    user ? dispatch(toggleIsLogged(user)) : dispatch(toggleIsLogged(user))
+  })
+}
+
 function App() {
-	const isLogged = useSelector(state => state.isUserLogged)
+  const dispatch = useDispatch()
+  const isLogged = useSelector(state => state.isUserLogged)
 
 	useEffect(() => {
-		// loadFirebaseData();
+		isUserSignedIn(dispatch);
 	}, []);
 
 	return (
