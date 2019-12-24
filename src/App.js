@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { toggleIsLogged } from './store/actions'
 import './App.css'
-import Table from './components/Table'
+import { MainContent } from './components/MainContent/MainContent'
 import LoginForm from './components/LoginForm'
 import Loading from './components/Loading'
 import { firebaseListenIfUserLoged } from './firebase.js'
@@ -11,7 +11,7 @@ import { firebaseListenIfUserLoged } from './firebase.js'
 
 function App() {
   const dispatch = useDispatch()
-  const isLogged = useSelector(state => state.isUserLogged)
+  const isLogged = useSelector(state => state.user)
   const [isUserStatusChecked, setIsUserStatusChecked] = useState(false);
 
   const setUser = (user) => {
@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       { isUserStatusChecked 
         ? isLogged  
-          ? <Table /> 
+          ? <MainContent /> 
           : <LoginForm /> 
         : <Loading /> }
 		</div>

@@ -1,0 +1,43 @@
+table{
+  position: relative;
+  tr{
+    position: relative;
+    background-color: gray;
+  }
+  td{
+    padding: 1rem;
+    border-bottom: 1px solid gray;
+  }
+  td.hint{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    background-color: gray;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: all 0.2s;
+  }
+  td:last-child{
+    opacity: 0;
+  }
+  td:last-child:hover{
+    opacity: 1;
+  }
+  td.wrong{
+    opacity: 1;
+    background-color: red;
+  }
+  td.correct{
+    opacity: 1;
+    background-color: green;
+  }
+  tr.weak{
+    background-color: red;
+  }
+  tr.average{
+    background-color: orange;
+  }
+  tr.good{
+    background-color: green;
+  }
+}

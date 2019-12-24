@@ -1,8 +1,8 @@
-import { TOGGLE_IS_LOGGED } from "./actions";
+import { TOGGLE_IS_LOGGED, FIREBASE_DATA } from "./actions";
 
 const initialState = {
-  isUserLogged: false,
-  firbaseData: {}
+  user: false,
+  firebaseData: {}
 }
 
 export function reducers(state = initialState, action) {
@@ -11,7 +11,12 @@ export function reducers(state = initialState, action) {
     case TOGGLE_IS_LOGGED:
       return {
         ...state,
-        isUserLogged: action.isLoged
+        user: action.isLoged
+      }
+    case FIREBASE_DATA:
+      return {
+        ...state,
+        firebaseData: action.firebaseData
       }
     default:
       return state

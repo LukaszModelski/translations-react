@@ -41,10 +41,6 @@ export const firebaseAuth = (login, pass) => {
 }
 
 export const loadFirebaseData = () => {
-	const databeseRef = firebase.database().ref();
-	databeseRef.once('value').then(function(snapshot) {
-		console.log('Data from firebase');
-    console.log(snapshot.val());
-    return snapshot.val();
-	});
+  const databeseRef = firebase.database().ref();
+	return databeseRef.once('value')
 }
