@@ -1,27 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
-import firebase from '../firebase.js';
-import { toggleIsLogged } from "../store/actions";
+import { firebaseAuth } from '../firebase.js';
 import './loginForm.css';
-
 
 const LoginForm = () => {
 
-  const dispatch = useDispatch()
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-
-  const firebaseAuth = (login, pass) => {
-    firebase.auth().signInWithEmailAndPassword(login, pass)
-      .then(function(val) {
-        console.log('logged succesful');
-        console.log(val);
-      })
-      .catch(function(error) {
-        console.log(error.code);
-        console.log(error.message);
-      });
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();

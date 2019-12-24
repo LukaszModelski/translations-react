@@ -1,37 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { toggleIsLogged } from './store/actions'
 import './App.css'
 import Table from './components/Table'
 import LoginForm from './components/LoginForm'
-import firebase from './firebase.js'
+import Loading from './components/Loading'
+import { firebaseListenIfUserLoged } from './firebase.js'
 
-const loadFirebaseData = () => {
-	const databeseRef = firebase.database().ref();
-	databeseRef.once('value').then(function(snapshot) {
-		console.log('test');
-		console.log(snapshot.val());
-	});
-}
-
-const isUserSignedIn = (dispatch) => {
-	firebase.auth().onAuthStateChanged(user => {
-    user ? dispatch(toggleIsLogged(user)) : dispatch(toggleIsLogged(user))
-  })
-}
 
 function App() {
   const dispatch = useDispatch()
   const isLogged = useSelector(state => state.isUserLogged)
+  const [isUserStatusChecked, setIsUserStatusChecked] = useState(false);
+
+  const setUser = (user) => {
+    dispatch(toggleIsLogged(user))
+    setIsUserStatusChecked(true)
+  }
 
 	useEffect(() => {
-		isUserSignedIn(dispatch);
+    firebaseListenIfUserLoged(setUser)
 	}, []);
 
 	return (
-		<div className="App">
-			{ isLogged ? <Table /> : <LoginForm /> }
+    <div className="App">
+      { isUserStatusChecked 
+        ? isLogged  
+          ? <Table /> 
+          : <LoginForm /> 
+        : <Loading /> }
 		</div>
 	);
 }
