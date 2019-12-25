@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setFirebaseData } from '../../store/actions'
 import { loadFirebaseData } from '../../firebase'
@@ -9,12 +9,17 @@ import './Table.scss'
 export const Table = () => {
   const dispatch = useDispatch()
   const firebaseData = useSelector(state => state.firebaseData)
-
+  const newWords = useSelector(state => state.newWords)
+  const [sortedFirebaseData, setSortedFirebaseData] = useState([]);
+  
   const sortFirebaseData = (firebaseData) => {
-    const sortedFirebaseData = Object.values(firebaseData).sort(function(a,b){
-      return a.percent-b.percent;
-    });
-    console.log(sortedFirebaseData);
+    return Object.values(firebaseData)
+      .sort((a,b) => {
+        if(a.percent > b.percent) return 1
+        if(a.percent < b.percent) return -1
+        if(a.attempts > b.attempts) return 1
+        if(a.attempts < b.attempts) return -1
+      })
   }
 
   const proxyAsyncFunction = async () => {
@@ -22,32 +27,37 @@ export const Table = () => {
     dispatch(setFirebaseData(data.val()))
   }
 
-  const renderRows = (firebaseData) => {
-    return Object.keys(firebaseData).map((key) => <TableRow 
-      key={key}
-      en={firebaseData[key].en}
-      pl={firebaseData[key].pl}
-      percent={firebaseData[key].percent}
-      success={firebaseData[key].success}
-      attempts={firebaseData[key].attempts}
+  const renderRows = (data) => {
+    return data.map((item) => <TableRow 
+      key={item.en}
+      en={item.en}
+      pl={item.pl}
+      percent={item.percent}
+      success={item.success}
+      attempts={item.attempts}
     />)
   }
 
   useEffect(() => {
     proxyAsyncFunction()
-  }, []);
+  }, [newWords]);
+
+  // useEffect(() => {
+  //   console.log('test');
+  // }, [newWords]);
   
   useEffect(() => {
-    sortFirebaseData(firebaseData)
-	});
+    setSortedFirebaseData(sortFirebaseData(firebaseData))
+	}, [firebaseData]);
 
   return (
     <>
-      <table className="mainTable">
+      <h2>Results</h2>
+      {sortedFirebaseData && <table className="mainTable">
         <tbody>
-          {firebaseData ? renderRows(firebaseData): ''}
+          {renderRows(sortedFirebaseData)}
         </tbody>
-      </table>
+      </table>}
     </>
   );
 }

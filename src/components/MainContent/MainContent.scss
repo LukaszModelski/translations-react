@@ -1,0 +1,8 @@
+.mainContent {
+  display: flex;
+  .column {
+    padding: 20px;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+}

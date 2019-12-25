@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { toggleIsLogged } from './store/actions'
 import './App.css'
 import { MainContent } from './components/MainContent/MainContent'
-import LoginForm from './components/LoginForm'
+import { LoginForm } from './components/LoginForm/LoginForm'
 import Loading from './components/Loading'
 import { firebaseListenIfUserLoged } from './firebase.js'
 

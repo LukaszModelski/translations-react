@@ -1,19 +1,23 @@
-.login-form {
+.loginScreen {
+  text-align: center;
+  
+  .login-form {
     display: inline-block;
     padding: 25px;
     background-color: lightgray;
-}
-
-.login-form label {
+  }
+  
+  .login-form label {
     display: block;
-}
-
-.login-form input {
+  }
+  
+  .login-form input {
     display: block;
     margin: 10px 0;
-}
-
-.login-form input[type=submit] {
+  }
+  
+  .login-form input[type=submit] {
     display: block;
     margin: 20px auto 0 auto;
+  }
 }

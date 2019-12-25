@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { firebaseAuth } from '../firebase.js';
-import './loginForm.css';
+import { firebaseAuth } from '../../firebase.js';
+import './loginForm.scss';
 
-const LoginForm = () => {
+export const LoginForm = () => {
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +13,7 @@ const LoginForm = () => {
   }
 
   return (
-    <>
+    <div className="loginScreen">
       <h1>Translations</h1>
       <form 
         className="login-form"
@@ -33,8 +33,6 @@ const LoginForm = () => {
         />
         <input value="submit" type="submit"/>
       </form>
-    </>
+    </div>
   );
 }
-
-export default LoginForm;

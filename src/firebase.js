@@ -44,3 +44,11 @@ export const loadFirebaseData = () => {
   const databeseRef = firebase.database().ref();
 	return databeseRef.once('value')
 }
+
+export const updateDB = (path, pl, en, attempts, success, percent) => {
+  firebase.database().ref('/'+path+'/pl').set(pl);
+  firebase.database().ref('/'+path+'/en').set(en);
+  firebase.database().ref('/'+path+'/attempts').set(attempts);
+  firebase.database().ref('/'+path+'/success').set(success);
+  firebase.database().ref('/'+path+'/percent').set(percent);
+}

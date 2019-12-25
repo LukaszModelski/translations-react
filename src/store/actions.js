@@ -4,6 +4,7 @@
 
 export const TOGGLE_IS_LOGGED = 'TOGGLE_IS_LOGGED'
 export const FIREBASE_DATA = 'FIREBASE_DATA'
+export const NEW_WORD = 'NEW_WORD'
 
  /*
  * action creators
@@ -15,4 +16,8 @@ export function toggleIsLogged(isLoged) {
 
 export function setFirebaseData(firebaseData) {
   return { type: FIREBASE_DATA, firebaseData }
+}
+
+export function triggerNewWordAdded(iterator) {
+  return { type: NEW_WORD, iterator }
 }

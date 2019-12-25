@@ -4,10 +4,10 @@ import { LoadingIcon } from './Icons/LoadingIcon'
 const Loading = () => {
 
   return (
-    <>
-        <p>loading...</p>
-        <LoadingIcon />
-    </>
+    <div className="loadingScreen">
+      <p>loading...</p>
+      <LoadingIcon />
+    </div>
   );
 }
 
