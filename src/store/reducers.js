@@ -1,11 +1,14 @@
-import { TOGGLE_IS_LOGGED, FIREBASE_DATA, NEW_WORD } from "./actions";
+import { TOGGLE_IS_LOGGED, FIREBASE_DATA, NEW_WORD, TEST_WORDS } from "./actions";
 
 const initialState = {
   user: false,
   firebaseData: {},
   newWords: 0,
   testTable: [],
-  nrOfTestItems: 5
+  nrOfTestItems: {
+    number: 0,
+    iteration: 0
+  }
 }
 
 export function reducers(state = initialState, action) {
@@ -25,6 +28,14 @@ export function reducers(state = initialState, action) {
       return {
         ...state,
         newWords: action.iterator
+      }
+    case TEST_WORDS:
+      return {
+        ...state,
+        nrOfTestItems: {
+          number: action.number,
+          iteration: action.iteration
+        }
       }
     default:
       return state

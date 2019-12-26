@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { TestTableRow } from './TestTableRow'
+import { DrawForm } from "../DrawForm/DrawForm";
 import { firebasDataToArray, yDifferentNumbersFrom0ToX } from "../../utils/utils"
 
 import './TestTable.scss'
@@ -9,6 +10,8 @@ export const TestTable = () => {
   const dispatch = useDispatch()
   const nrOfTestItems = useSelector(state => state.nrOfTestItems)
   const firebaseData = useSelector(state => state.firebaseData)
+
+  const validTable = (firebaseData && nrOfTestItems) ? true : false
 
   const renderTestItems = (firebaseData, nrOfTestItems) => {
       const arrayFirebaseData = firebasDataToArray(firebaseData)
@@ -24,9 +27,10 @@ export const TestTable = () => {
   return (
     <>
       <h2>Draw test table</h2>
-      {firebaseData && nrOfTestItems && <table className="testTable">
+      <DrawForm />
+      {validTable && <table className="testTable">
         <tbody>
-          {renderTestItems(firebaseData, nrOfTestItems)}
+          {renderTestItems(firebaseData, nrOfTestItems.number)}
         </tbody>
       </table>}
     </>

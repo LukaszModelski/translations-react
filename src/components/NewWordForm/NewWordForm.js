@@ -48,7 +48,7 @@ export const NewWordForm = () => {
           value={pl}
           onChange={event => setPl(event.target.value)}
         />
-        <input value="submit" type="submit"/>
+        <input value="Add" type="submit"/>
       </form>
     </>
   );
