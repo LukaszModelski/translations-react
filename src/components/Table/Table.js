@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setFirebaseData } from '../../store/actions'
 import { loadFirebaseData } from '../../firebase'
 import { TableRow } from './TableRow'
+import { firebasDataToArray } from '../../utils/utils'
 
 import './Table.scss'
 
@@ -13,12 +14,13 @@ export const Table = () => {
   const [sortedFirebaseData, setSortedFirebaseData] = useState([]);
   
   const sortFirebaseData = (firebaseData) => {
-    return Object.values(firebaseData)
+    return firebasDataToArray(firebaseData)
       .sort((a,b) => {
         if(a.percent > b.percent) return 1
         if(a.percent < b.percent) return -1
         if(a.attempts > b.attempts) return 1
         if(a.attempts < b.attempts) return -1
+        return 1
       })
   }
 
@@ -41,10 +43,6 @@ export const Table = () => {
   useEffect(() => {
     proxyAsyncFunction()
   }, [newWords]);
-
-  // useEffect(() => {
-  //   console.log('test');
-  // }, [newWords]);
   
   useEffect(() => {
     setSortedFirebaseData(sortFirebaseData(firebaseData))

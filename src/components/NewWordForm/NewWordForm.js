@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { triggerNewWordAdded } from '../../store/actions'
 import './NewWordForm.scss';
 import { updateDB } from '../../firebase'
@@ -23,7 +23,7 @@ export const NewWordForm = () => {
       increaseNewWordsAdded(newWordsAdded + 1)
       setEn('')
       setPl('')
-      alert(`New word added to database: \'${inputEn}\' - \'${inputPl}\'`)
+      alert(`New word added to database: '${inputEn}' - '${inputPl}'`)
     } else {
       alert('Both inputs must be filled')
     }

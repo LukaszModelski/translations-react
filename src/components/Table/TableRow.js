@@ -5,7 +5,7 @@ export const TableRow = ({en, pl, percent, success, attempts}) => {
   const successLvl = (percent, attempts) => {
     let lvl;
     switch (true) {
-      case attempts == 0:
+      case attempts === 0:
         lvl = ' ';
         break;
       case percent>75:

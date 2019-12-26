@@ -3,7 +3,9 @@ import { TOGGLE_IS_LOGGED, FIREBASE_DATA, NEW_WORD } from "./actions";
 const initialState = {
   user: false,
   firebaseData: {},
-  newWords: 0
+  newWords: 0,
+  testTable: [],
+  nrOfTestItems: 5
 }
 
 export function reducers(state = initialState, action) {
