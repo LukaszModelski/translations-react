@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState }from 'react'
 
 export const TestTableRow = ({en, pl}) => {
 
@@ -7,7 +7,10 @@ export const TestTableRow = ({en, pl}) => {
       <tr>
         <td>{en}</td>
         <td>
-          <input type="text" />
+          <input 
+            type="text"
+            placeholder="answer"
+          />
         </td>
         <td>{pl}</td>
       </tr>
