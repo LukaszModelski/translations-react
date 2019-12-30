@@ -6,6 +6,7 @@ export const TOGGLE_IS_LOGGED = 'TOGGLE_IS_LOGGED'
 export const FIREBASE_DATA = 'FIREBASE_DATA'
 export const NEW_WORD = 'NEW_WORD'
 export const TEST_WORDS = 'TEST_WORDS'
+export const TEST_TABLE = 'TEST_TABLE'
 
  /*
  * action creators
@@ -25,4 +26,8 @@ export function triggerNewWordAdded(iterator) {
 
 export function setHowManyTestWords(number, iteration) {
   return { type: TEST_WORDS, number, iteration }
+}
+
+export function setTestTable(table) {
+  return { type: TEST_TABLE, table }
 }

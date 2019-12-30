@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { setTestTable } from '../../store/actions'
 import { TestTableRow } from './TestTableRow'
 import { DrawForm } from "../DrawForm/DrawForm";
 import { CheckAnswersForm } from "../CheckAnswersForm/CheckAnswersForm";
@@ -9,21 +10,37 @@ import './TestTable.scss'
 
 export const TestTable = () => {
   const dispatch = useDispatch()
-  const nrOfTestItems = useSelector(state => state.nrOfTestItems)
+  const testTable = useSelector(state => state.testTable)
+  const numberOfWords = useSelector(state => state.testTable.numberOfWords)
+  const iteration = useSelector(state => state.testTable.iteration)
   const firebaseData = useSelector(state => state.firebaseData)
 
-  const validTable = (firebaseData && nrOfTestItems.number) ? true : false
+  const validTable = (firebaseData && numberOfWords && testTable) ? true : false
 
-  const renderTestItems = (firebaseData, nrOfTestItems) => {
-    const arrayFirebaseData = firebasDataToArray(firebaseData)
-    const totalLength = arrayFirebaseData.length
-    return yDifferentNumbersFrom0ToX(nrOfTestItems, totalLength).map((index) => <TestTableRow
-        key={arrayFirebaseData[index].en}
-        en={arrayFirebaseData[index].en}
-        pl={arrayFirebaseData[index].pl}
+  const renderTestItems = (testTable) => {
+    return testTable.map((item) => <TestTableRow
+        key={item.en}
+        en={item.en}
+        pl={item.pl}
       />
     )
   }
+
+  const dispatchTestTable = (numberOfWords) => {
+    const arrayFirebaseData = firebasDataToArray(firebaseData)
+    const totalLength = arrayFirebaseData.length
+    let testTable = {}
+    yDifferentNumbersFrom0ToX(numberOfWords, totalLength).forEach((index) => {
+      const currentWord = arrayFirebaseData[index]['en']
+      testTable[currentWord] = arrayFirebaseData[index]
+    })
+    console.log(testTable);
+    dispatch(setTestTable(testTable))
+  }
+
+  useEffect(() => {
+    dispatchTestTable(numberOfWords)
+	}, [numberOfWords, iteration]);
 
   return (
     <>
@@ -32,7 +49,7 @@ export const TestTable = () => {
       {validTable && <>
         <table className="testTable">
           <tbody>
-            {renderTestItems(firebaseData, nrOfTestItems.number)}
+            {renderTestItems(firebasDataToArray(testTable.words))}
           </tbody>
         </table>
         <CheckAnswersForm />
