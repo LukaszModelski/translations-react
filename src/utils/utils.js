@@ -37,3 +37,8 @@ export const debounce = (func, wait) => {
 		timeout = setTimeout(later, wait);
 	};
 };
+
+export const isAnswerCorrect = (plString, answer) => {
+  const plArray = plString.split(' / ')
+  return plArray.includes(answer)
+}

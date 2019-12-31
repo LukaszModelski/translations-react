@@ -4,7 +4,8 @@ import {
   NEW_WORD,
   TEST_WORDS,
   TEST_TABLE,
-  TEST_TABLE_ANSWEAR
+  TEST_TABLE_ANSWEAR,
+  IS_ANSWER_GOOD
 } from "./actions";
 
 const initialState = {
@@ -63,6 +64,20 @@ export function reducers(state = initialState, action) {
             [action.word]: {
               ...state.testTable.words[action.word],
               answer: action.answer
+            }
+          }
+        }
+      }
+    case IS_ANSWER_GOOD:
+      return {
+        ...state,
+        testTable: {
+          ...state.testTable,
+          words: {
+            ...state.testTable.words,
+            [action.word]: {
+              ...state.testTable.words[action.word],
+              isAnswerGood: action.isAnswerGood
             }
           }
         }

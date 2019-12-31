@@ -22,6 +22,7 @@ export const TestTable = () => {
         key={item.en}
         en={item.en}
         pl={item.pl}
+        isGoodAnswer={item.isAnswerGood}
       />
     )
   }

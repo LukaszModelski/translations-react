@@ -8,6 +8,7 @@ export const NEW_WORD = 'NEW_WORD'
 export const TEST_WORDS = 'TEST_WORDS'
 export const TEST_TABLE = 'TEST_TABLE'
 export const TEST_TABLE_ANSWEAR = 'TEST_TABLE_ANSWEAR'
+export const IS_ANSWER_GOOD = 'IS_ANSWER_GOOD'
 
  /*
  * action creators
@@ -35,4 +36,8 @@ export function setTestTable(table) {
 
 export function setTestTableAnswer(word, answer) {
   return { type: TEST_TABLE_ANSWEAR, word, answer }
+}
+
+export function setIsAnswerGood(word, isAnswerGood) {
+  return { type: IS_ANSWER_GOOD, word, isAnswerGood }
 }

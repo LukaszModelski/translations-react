@@ -4,16 +4,30 @@ import { setTestTableAnswer } from "../../store/actions"
 import { debounce } from "../../utils/utils";
 
 
-export const TestTableRow = ({en, pl}) => {
+export const TestTableRow = ({en, pl, isGoodAnswer='noAnswer'}) => {
   const dispatch = useDispatch()
 
   const handleInput = debounce((en, answer) => {
     dispatch(setTestTableAnswer(en, answer))
-  }, 500)
+  }, 250)
+
+  const answerClassName = (isGoodAnswer) => {
+    switch (isGoodAnswer) {
+      case true:
+        return 'good'
+        break;
+      case false:
+        return 'weak'
+        break;
+      default:
+        return 'noAnswer'
+        break;
+    }
+  }
 
   return (
     <>
-      <tr>
+      <tr className={answerClassName(isGoodAnswer)}>
         <td>{en}</td>
         <td>
           <input 

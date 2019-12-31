@@ -1,22 +1,41 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { firebasDataToArray, isAnswerCorrect } from "../../utils/utils"
+import { setIsAnswerGood } from "../../store/actions"
 
 import './CheckAnswersForm.scss'
 
 export const CheckAnswersForm = () => {
   const dispatch = useDispatch()
+  const testTable = useSelector(state => state.testTable.words)
+  const iteration = useSelector(state => state.testTable.iteration)
+  const [answersChecked, setAnswersChecked] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, testTable) => {
     event.preventDefault();
-    console.log('test');
+    checkAnswers(testTable)
   }
+
+  const checkAnswers = (testTable) => {
+    firebasDataToArray(testTable).forEach((item)=> {
+      if(item.answer) {
+        const isAnswerGood = isAnswerCorrect(item.pl, item.answer)
+        dispatch(setIsAnswerGood(item.en, isAnswerGood))
+      }
+    })
+    setAnswersChecked(true)
+  }
+
+  useEffect(() => {
+    setAnswersChecked(false)
+  }, [iteration]);
 
   return (
     <form         
       className="checkAnswersForm"
-      onSubmit={handleSubmit}
+      onSubmit={event => handleSubmit(event, testTable)}
     >
-      <input type="submit" value="Check answers" />
+      <input type="submit" value="Check answers" disabled={answersChecked}/>
     </form>
   )
 }
