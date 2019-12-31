@@ -3,7 +3,8 @@ import {
   FIREBASE_DATA,
   NEW_WORD,
   TEST_WORDS,
-  TEST_TABLE
+  TEST_TABLE,
+  TEST_TABLE_ANSWEAR
 } from "./actions";
 
 const initialState = {
@@ -50,6 +51,20 @@ export function reducers(state = initialState, action) {
         testTable: {
           ...state.testTable,
           words: action.table
+        }
+      }
+    case TEST_TABLE_ANSWEAR:
+      return {
+        ...state,
+        testTable: {
+          ...state.testTable,
+          words: {
+            ...state.testTable.words,
+            [action.word]: {
+              ...state.testTable.words[action.word],
+              answer: action.answer
+            }
+          }
         }
       }
     default:

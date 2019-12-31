@@ -23,3 +23,17 @@ export const yDifferentNumbersFrom0ToX = (y, x) => {
 const arrayFrom0toX = (x) => {
   return Array.from(new Array(x), (val,index) => index);
 }
+
+export const debounce = (func, wait) => {
+	var timeout;
+	return function() {
+    var context = this
+    var args = arguments;
+		var later = function() {
+			timeout = null;
+			func.apply(context, args);
+		};
+		clearTimeout(timeout)
+		timeout = setTimeout(later, wait);
+	};
+};

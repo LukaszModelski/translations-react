@@ -40,8 +40,8 @@ export const TestTable = () => {
 
   useEffect(() => {
     dispatchTestTable(numberOfWords)
-	}, [numberOfWords, iteration]);
-
+  }, [numberOfWords, iteration]);
+  
   return (
     <>
       <h2>Draw test table</h2>
