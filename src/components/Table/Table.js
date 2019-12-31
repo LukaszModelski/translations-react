@@ -11,6 +11,7 @@ export const Table = () => {
   const dispatch = useDispatch()
   const firebaseData = useSelector(state => state.firebaseData)
   const newWords = useSelector(state => state.newWords)
+  const checkedAnswersIterator = useSelector(state => state.answersChecked)
   const [sortedFirebaseData, setSortedFirebaseData] = useState([]);
   
   const sortFirebaseData = (firebaseData) => {
@@ -42,7 +43,7 @@ export const Table = () => {
 
   useEffect(() => {
     proxyAsyncFunction()
-  }, [newWords]);
+  }, [newWords, checkedAnswersIterator]);
   
   useEffect(() => {
     setSortedFirebaseData(sortFirebaseData(firebaseData))

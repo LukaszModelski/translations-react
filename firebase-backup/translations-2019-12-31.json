@@ -1,0 +1,317 @@
+{
+  "adjective" : {
+    "attempts" : 6,
+    "en" : "adjective",
+    "percent" : 100,
+    "pl" : "przymiotnik",
+    "success" : 6
+  },
+  "amplify" : {
+    "attempts" : 5,
+    "en" : "amplify",
+    "percent" : 60,
+    "pl" : "wzmacniać / zwiększać / wzmocnić",
+    "success" : 3
+  },
+  "ancestor" : {
+    "attempts" : 4,
+    "en" : "ancestor",
+    "percent" : 100,
+    "pl" : "przodek",
+    "success" : 4
+  },
+  "angular" : {
+    "attempts" : 9,
+    "en" : "angular",
+    "percent" : 100,
+    "pl" : "kanciasty / kanciaty",
+    "success" : 9
+  },
+  "apparently" : {
+    "attempts" : 6,
+    "en" : "apparently",
+    "percent" : 100,
+    "pl" : "najwyraźniej",
+    "success" : 6
+  },
+  "assume" : {
+    "attempts" : 0,
+    "en" : "assume",
+    "percent" : 0,
+    "pl" : "zakładać",
+    "success" : 0
+  },
+  "bargain" : {
+    "attempts" : 5,
+    "en" : "bargain",
+    "percent" : 100,
+    "pl" : "okazja / możliwość",
+    "success" : 5
+  },
+  "blunder" : {
+    "attempts" : 6,
+    "en" : "blunder",
+    "percent" : 100,
+    "pl" : "pomyłka / wpadka",
+    "success" : 6
+  },
+  "brim" : {
+    "attempts" : 5,
+    "en" : "brim",
+    "percent" : 100,
+    "pl" : "brzeg / rondo",
+    "success" : 5
+  },
+  "certainly" : {
+    "attempts" : 6,
+    "en" : "certainly",
+    "percent" : 83.33,
+    "pl" : "na pewno / z pewnością",
+    "success" : 5
+  },
+  "deed" : {
+    "attempts" : 2,
+    "en" : "deed",
+    "percent" : 0,
+    "pl" : "uczynek / czyn / wyczyn",
+    "success" : 0
+  },
+  "encourage" : {
+    "attempts" : 4,
+    "en" : "encourage",
+    "percent" : 100,
+    "pl" : "zachęcać / mobilizować / przekonywać",
+    "success" : 4
+  },
+  "evasion" : {
+    "attempts" : 1,
+    "en" : "evasion",
+    "percent" : 100,
+    "pl" : "uchylanie się",
+    "success" : 1
+  },
+  "facilitation" : {
+    "attempts" : 1,
+    "en" : "facilitation",
+    "percent" : 100,
+    "pl" : "ułatwienie / odciążenie",
+    "success" : 1
+  },
+  "flour" : {
+    "attempts" : 2,
+    "en" : "flour",
+    "percent" : 50,
+    "pl" : "mąka",
+    "success" : 1
+  },
+  "fond of" : {
+    "attempts" : 6,
+    "en" : "fond of",
+    "percent" : 100,
+    "pl" : "lubiący",
+    "success" : 6
+  },
+  "humble" : {
+    "attempts" : 8,
+    "en" : "humble",
+    "percent" : 75,
+    "pl" : "skromny / pokorny",
+    "success" : 6
+  },
+  "hush up" : {
+    "attempts" : 5,
+    "en" : "hush up",
+    "percent" : 100,
+    "pl" : "uciszyć",
+    "success" : 5
+  },
+  "immense" : {
+    "attempts" : 4,
+    "en" : "immense",
+    "percent" : 75,
+    "pl" : "ogromny",
+    "success" : 3
+  },
+  "indeed" : {
+    "attempts" : 6,
+    "en" : "indeed",
+    "percent" : 100,
+    "pl" : "w rzeczy samej / faktycznie",
+    "success" : 6
+  },
+  "insult" : {
+    "attempts" : 6,
+    "en" : "insult",
+    "percent" : 66.67,
+    "pl" : "zniewaga / obraza",
+    "success" : 4
+  },
+  "intimidate" : {
+    "attempts" : 5,
+    "en" : "intimidate",
+    "percent" : 20,
+    "pl" : "budzić grozę / zastraszyć / onieśmielić",
+    "success" : 1
+  },
+  "knob" : {
+    "attempts" : 2,
+    "en" : "knob",
+    "percent" : 100,
+    "pl" : "pokrętło / gałka",
+    "success" : 2
+  },
+  "meadow" : {
+    "attempts" : 11,
+    "en" : "meadow",
+    "percent" : 100,
+    "pl" : "łąka",
+    "success" : 11
+  },
+  "mend" : {
+    "attempts" : 2,
+    "en" : "mend",
+    "percent" : 50,
+    "pl" : "naprawiać / reperować",
+    "success" : 1
+  },
+  "oozy" : {
+    "attempts" : 6,
+    "en" : "oozy",
+    "percent" : 100,
+    "pl" : "wilgotny / błotnisty",
+    "success" : 6
+  },
+  "ought" : {
+    "attempts" : 0,
+    "en" : "ought",
+    "percent" : 0,
+    "pl" : "powinien",
+    "success" : 0
+  },
+  "particular" : {
+    "attempts" : 8,
+    "en" : "particular",
+    "percent" : 100,
+    "pl" : "szczególny / określony / konkretny",
+    "success" : 8
+  },
+  "perish" : {
+    "attempts" : 0,
+    "en" : "perish",
+    "percent" : 0,
+    "pl" : "umierać / ginąć",
+    "success" : 0
+  },
+  "prosy" : {
+    "attempts" : 6,
+    "en" : "prosy",
+    "percent" : 66.67,
+    "pl" : "bez polotu",
+    "success" : 4
+  },
+  "reliable" : {
+    "attempts" : 0,
+    "en" : "reliable",
+    "percent" : 0,
+    "pl" : "wiarygodny",
+    "success" : 0
+  },
+  "shiver" : {
+    "attempts" : 4,
+    "en" : "shiver",
+    "percent" : 100,
+    "pl" : "dreszcz",
+    "success" : 4
+  },
+  "sorrow" : {
+    "attempts" : 3,
+    "en" : "sorrow",
+    "percent" : 66.67,
+    "pl" : "smutek / żal / nieszczęście",
+    "success" : 2
+  },
+  "sought" : {
+    "attempts" : 2,
+    "en" : "sought",
+    "percent" : 100,
+    "pl" : "poszukiwany",
+    "success" : 2
+  },
+  "taint" : {
+    "attempts" : 2,
+    "en" : "taint",
+    "percent" : 100,
+    "pl" : "zabarwienie / barwa",
+    "success" : 2
+  },
+  "tainted" : {
+    "attempts" : 3,
+    "en" : "tainted",
+    "percent" : 33.33,
+    "pl" : "skażony / splamiony / zanieczyszczony",
+    "success" : 1
+  },
+  "thump" : {
+    "attempts" : 7,
+    "en" : "thump",
+    "percent" : 100,
+    "pl" : "uderzenie",
+    "success" : 7
+  },
+  "to abide" : {
+    "attempts" : 2,
+    "en" : "to abide",
+    "percent" : 50,
+    "pl" : "mieszkać / przebywać / pozostawiać",
+    "success" : 1
+  },
+  "to conduct" : {
+    "attempts" : 0,
+    "en" : "to conduct",
+    "percent" : 0,
+    "pl" : "prowadzić / przeprowadzać",
+    "success" : 0
+  },
+  "to schedule" : {
+    "attempts" : 1,
+    "en" : "to schedule",
+    "percent" : 100,
+    "pl" : "planować / zaplanować",
+    "success" : 1
+  },
+  "waist" : {
+    "attempts" : 5,
+    "en" : "waist",
+    "percent" : 100,
+    "pl" : "talia",
+    "success" : 5
+  },
+  "wait on" : {
+    "attempts" : 3,
+    "en" : "wait on",
+    "percent" : 100,
+    "pl" : "obsługiwać",
+    "success" : 3
+  },
+  "whether" : {
+    "attempts" : 4,
+    "en" : "whether",
+    "percent" : 75,
+    "pl" : "czy",
+    "success" : 3
+  },
+  "wink" : {
+    "attempts" : 4,
+    "en" : "wink",
+    "percent" : 100,
+    "pl" : "mrugać / mrugnąć",
+    "success" : 4
+  },
+  "wound" : {
+    "attempts" : 8,
+    "en" : "wound",
+    "percent" : 100,
+    "pl" : "rana",
+    "success" : 8
+  }
+}

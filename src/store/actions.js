@@ -9,6 +9,7 @@ export const TEST_WORDS = 'TEST_WORDS'
 export const TEST_TABLE = 'TEST_TABLE'
 export const TEST_TABLE_ANSWEAR = 'TEST_TABLE_ANSWEAR'
 export const IS_ANSWER_GOOD = 'IS_ANSWER_GOOD'
+export const ANSWERS_CHECKED_ITERATOR = 'ANSWERS_CHECKED_ITERATOR'
 
  /*
  * action creators
@@ -40,4 +41,8 @@ export function setTestTableAnswer(word, answer) {
 
 export function setIsAnswerGood(word, isAnswerGood) {
   return { type: IS_ANSWER_GOOD, word, isAnswerGood }
+}
+
+export function triggerAnswersChecked(iterator) {
+  return { type: ANSWERS_CHECKED_ITERATOR, iterator }
 }

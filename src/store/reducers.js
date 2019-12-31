@@ -5,7 +5,8 @@ import {
   TEST_WORDS,
   TEST_TABLE,
   TEST_TABLE_ANSWEAR,
-  IS_ANSWER_GOOD
+  IS_ANSWER_GOOD,
+  ANSWERS_CHECKED_ITERATOR
 } from "./actions";
 
 const initialState = {
@@ -16,7 +17,8 @@ const initialState = {
     numberOfWords: 0,
     iteration: 0,
     words: []
-  }
+  },
+  answersChecked: 0
 }
 
 export function reducers(state = initialState, action) {
@@ -81,6 +83,11 @@ export function reducers(state = initialState, action) {
             }
           }
         }
+      }
+    case ANSWERS_CHECKED_ITERATOR:
+      return {
+        ...state,
+        answersChecked: action.iterator
       }
     default:
       return state
