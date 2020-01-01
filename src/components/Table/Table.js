@@ -11,17 +11,26 @@ export const Table = () => {
   const dispatch = useDispatch()
   const firebaseData = useSelector(state => state.firebaseData)
   const newWords = useSelector(state => state.newWords)
+  const order = useSelector(state => state.filters.order)
   const checkedAnswersIterator = useSelector(state => state.answersChecked)
   const [sortedFirebaseData, setSortedFirebaseData] = useState([]);
   
-  const sortFirebaseData = (firebaseData) => {
+  const sortFirebaseData = (firebaseData, order="ascd") => {
     return firebasDataToArray(firebaseData)
       .sort((a,b) => {
-        if(a.percent > b.percent) return 1
-        if(a.percent < b.percent) return -1
-        if(a.attempts > b.attempts) return 1
-        if(a.attempts < b.attempts) return -1
-        return 1
+        if(order === "ascd") {
+          if(a.percent > b.percent) return 1
+          if(a.percent < b.percent) return -1
+          if(a.attempts > b.attempts) return 1
+          if(a.attempts < b.attempts) return -1
+          return 1
+        } else {
+          if(a.percent < b.percent) return 1
+          if(a.percent > b.percent) return -1
+          if(a.attempts < b.attempts) return 1
+          if(a.attempts > b.attempts) return -1
+          return 1
+        }
       })
   }
 
@@ -46,8 +55,8 @@ export const Table = () => {
   }, [newWords, checkedAnswersIterator]);
   
   useEffect(() => {
-    setSortedFirebaseData(sortFirebaseData(firebaseData))
-	}, [firebaseData]);
+    setSortedFirebaseData(sortFirebaseData(firebaseData, order))
+	}, [firebaseData, order]);
 
   return (
     <>
