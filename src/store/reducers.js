@@ -7,12 +7,14 @@ import {
   TEST_TABLE_ANSWEAR,
   IS_ANSWER_GOOD,
   ANSWERS_CHECKED_ITERATOR,
-  TABLE_ORDER
+  TABLE_ORDER,
+  TOTAL_WORDS
 } from "./actions";
 
 const initialState = {
   user: false,
   firebaseData: {},
+  totalWords: undefined,
   newWords: 0,
   testTable: {
     numberOfWords: 0,
@@ -100,6 +102,11 @@ export function reducers(state = initialState, action) {
           ...state.filters,
           order: action.order
         }
+      }
+    case TOTAL_WORDS:
+      return {
+        ...state,
+        totalWords: action.total
       }
     default:
       return state

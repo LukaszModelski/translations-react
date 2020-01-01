@@ -42,3 +42,7 @@ export const isAnswerCorrect = (plString, answer) => {
   const plArray = plString.split(' / ')
   return plArray.includes(answer)
 }
+
+export const firebaseDataLength = (dataObject) => {
+  return Object.keys(dataObject).length;
+}

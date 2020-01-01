@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setFirebaseData } from '../../store/actions'
+import { setFirebaseData, setTotalWords } from '../../store/actions'
 import { loadFirebaseData } from '../../firebase'
 import { TableRow } from './TableRow'
-import { firebasDataToArray } from '../../utils/utils'
+import { firebasDataToArray, firebaseDataLength } from '../../utils/utils'
 
 import './Table.scss'
 
@@ -37,6 +37,7 @@ export const Table = () => {
   const proxyAsyncFunction = async () => {
     const data = await loadFirebaseData()
     dispatch(setFirebaseData(data.val()))
+    dispatch(setTotalWords(firebaseDataLength(data.val())))
   }
 
   const renderRows = (data) => {

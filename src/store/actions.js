@@ -11,6 +11,7 @@ export const TEST_TABLE_ANSWEAR = 'TEST_TABLE_ANSWEAR'
 export const IS_ANSWER_GOOD = 'IS_ANSWER_GOOD'
 export const ANSWERS_CHECKED_ITERATOR = 'ANSWERS_CHECKED_ITERATOR'
 export const TABLE_ORDER = 'TABLE_ORDER'
+export const TOTAL_WORDS = 'TOTAL_WORDS'
 
  /*
  * action creators
@@ -50,4 +51,8 @@ export function triggerAnswersChecked(iterator) {
 
 export function setTableOrder(order) {
   return { type: TABLE_ORDER, order }
+}
+
+export function setTotalWords(total) {
+  return { type: TOTAL_WORDS, total }
 }
