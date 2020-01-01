@@ -3,6 +3,7 @@ import { Table } from '../Table/Table'
 import { SignOut } from '../SignOut/SignOut'
 import { TestTable } from '../TestTable/TestTable'
 import { NewWordForm } from '../NewWordForm/NewWordForm'
+import { Filters } from "../Filters/Filters";
 
 import './MainContent.scss'
 
@@ -12,6 +13,8 @@ export const MainContent = () => {
     <>
       <div className="mainContent">
         <div className="column">
+          <h2>Results</h2>
+          <Filters />
           <Table />
         </div>
         <div className="column">

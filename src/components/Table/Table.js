@@ -51,7 +51,6 @@ export const Table = () => {
 
   return (
     <>
-      <h2>Results</h2>
       {sortedFirebaseData && <table className="mainTable">
         <tbody>
           {renderRows(sortedFirebaseData)}

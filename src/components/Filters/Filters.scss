@@ -1,0 +1,10 @@
+.filters {
+  span {
+    cursor: pointer;
+  }
+
+  span.active {
+    font-weight: 700;
+    pointer-events: none;
+  }
+}

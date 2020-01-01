@@ -6,7 +6,8 @@ import {
   TEST_TABLE,
   TEST_TABLE_ANSWEAR,
   IS_ANSWER_GOOD,
-  ANSWERS_CHECKED_ITERATOR
+  ANSWERS_CHECKED_ITERATOR,
+  TABLE_ORDER
 } from "./actions";
 
 const initialState = {
@@ -18,7 +19,10 @@ const initialState = {
     iteration: 0,
     words: []
   },
-  answersChecked: 0
+  answersChecked: 0,
+  filters: {
+    order: 'ascd'
+  }
 }
 
 export function reducers(state = initialState, action) {
@@ -88,6 +92,14 @@ export function reducers(state = initialState, action) {
       return {
         ...state,
         answersChecked: action.iterator
+      }
+    case TABLE_ORDER:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          order: action.order
+        }
       }
     default:
       return state
